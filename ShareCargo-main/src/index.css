@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 215 30% 6%;
+    --foreground: 210 20% 96%;
+    --card: 217 28% 10%;
+    --card-foreground: 210 20% 96%;
+    --popover: 217 28% 10%;
+    --popover-foreground: 210 20% 96%;
+    --primary: 187 90% 42%;
+    --primary-foreground: 215 30% 6%;
+    --secondary: 217 25% 16%;
+    --secondary-foreground: 210 20% 86%;
+    --muted: 217 25% 14%;
+    --muted-foreground: 215 15% 55%;
+    --accent: 187 90% 42%;
+    --accent-foreground: 215 30% 6%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 20% 18%;
+    --input: 217 25% 14%;
+    --ring: 187 90% 42%;
+    --radius: 0.75rem;
+
+    /* Brand tokens */
+    --navy: 215 30% 6%;
+    --navy-mid: 217 28% 10%;
+    --navy-light: 217 25% 16%;
+    --teal: 187 90% 42%;
+    --teal-dark: 187 90% 32%;
+    --amber: 38 95% 54%;
+    --emerald: 158 64% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  .teal-glow {
+    box-shadow: 0 0 30px rgba(14, 210, 217, 0.15);
+  }
+  .text-teal {
+    color: hsl(var(--teal));
+  }
+  .bg-teal {
+    background-color: hsl(var(--teal));
+  }
+  .border-teal {
+    border-color: hsl(var(--teal));
+  }
+  .gradient-teal {
+    background: linear-gradient(135deg, hsl(187, 90%, 42%) 0%, hsl(187, 90%, 28%) 100%);
+  }
+  .gradient-navy {
+    background: linear-gradient(180deg, hsl(215, 30%, 6%) 0%, hsl(217, 28%, 10%) 100%);
+  }
+  .container-progress {
+    background: linear-gradient(90deg, hsl(187, 90%, 42%) var(--fill), hsl(217, 25%, 16%) var(--fill));
+  }
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .route-line {
+    stroke-dasharray: 8 4;
+    animation: dash 20s linear infinite;
+  }
+  @keyframes dash {
+    to { stroke-dashoffset: -200; }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--navy)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--navy-light)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--teal)); }
